@@ -25,16 +25,16 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    app.kubernetes.io/managed-by: gcp-cloud-build-deploy
-  name: gcp-devops-gke-service
-  namespace: gcp-devops-prod
+    name: gcp-devops-gke-service
+    namespace: gcp-devops-prod
+    labels:
+     app.kubernetes.io/managed-by: gcp-cloud-build-deploy
 spec:
   type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 5000    
   selector:
     app: gcp
-  ports:
-  - port: 80
-    targetport: 5000
 
   
